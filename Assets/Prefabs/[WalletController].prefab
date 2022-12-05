@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8340851021818164658}
   - component: {fileID: 8340851021818164657}
-  - component: {fileID: 4320523255381914141}
+  - component: {fileID: 5464274881932326595}
   m_Layer: 0
   m_Name: '[WalletController]'
   m_TagString: Untagged
@@ -63,7 +63,7 @@ MonoBehaviour:
     phantomApiVersion: v1
     appMetaDataUrl: https://github.com/garbles-labs/Solana.Unity-SDK
     deeplinkUrlScheme: unitydl
---- !u!114 &4320523255381914141
+--- !u!114 &5464274881932326595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,6 +72,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8340851021818164656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c915183a66ff2444a833276269898760, type: 3}
+  m_Script: {fileID: 11500000, guid: 729d3e50584e82d409802c5feaccd989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

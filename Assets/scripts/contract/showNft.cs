@@ -30,6 +30,8 @@ namespace Solana.Unity.SDK.Example
 
         public void Start()
         {
+
+
             _instantiatedTokens = new List<GameObject>();
             WebSocketActions.WebSocketAccountSubscriptionAction += (bool istrue) =>
             {
@@ -72,21 +74,25 @@ namespace Solana.Unity.SDK.Example
 
         private async Task GetOwnedTokenAccounts()
         {
-            
+            var objs = GameObject.FindGameObjectsWithTag("NFT");
             var result = await SimpleWallet.Instance.Wallet.GetTokenAccounts();
-
+            int i = 0;
             if (result is { Length: > 0 })
             {
                 foreach (var item in result)
                 {
-                    if (!(float.Parse(item.Account.Data.Parsed.Info.TokenAmount.Amount) > 0)) continue;
-                    var nft = await Nft.Nft.TryGetNftData(item.Account.Data.Parsed.Info.Mint, SimpleWallet.Instance.Wallet.ActiveRpcClient);
+                    if (i < objs.Length)
+                    {
+                        if (!(float.Parse(item.Account.Data.Parsed.Info.TokenAmount.Amount) > 0)) continue;
+                        var nft = await Nft.Nft.TryGetNftData(item.Account.Data.Parsed.Info.Mint, SimpleWallet.Instance.Wallet.ActiveRpcClient);
 
-                    var tk = Instantiate(tokenItem, tokenContainer, true);
-                    tk.transform.localScale = Vector3.one;
-                    _instantiatedTokens.Add(tk);
-                    tk.SetActive(true);
-                    tk.GetComponent<oneNft>().InitializeData(item, this, nft);
+                        objs[i].transform.localScale = Vector3.one;
+                        _instantiatedTokens.Add(objs[i]);
+                        objs[i].SetActive(true);
+                        objs[i].GetComponent<oneNft>().InitializeData(item, this, nft);
+
+                    }
+                    i++;
                 }
             }
         }
