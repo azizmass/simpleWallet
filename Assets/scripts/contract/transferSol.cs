@@ -60,7 +60,11 @@ namespace Solana.Unity.SDK.Example
                 new PublicKey(toPublicTxt.text),
                 new PublicKey(nft.metaplexData.mint),
                 1);
-            UnityEngine.Debug.Log(result);
+            UnityEngine.Debug.Log(result.WasSuccessful);
+            UnityEngine.Debug.Log(result.Reason);
+                UnityEngine.Debug.Log(result.ServerErrorCode);
+            UnityEngine.Debug.Log(toPublicTxt.text);
+            UnityEngine.Debug.Log(nft.metaplexData.mint);
 
         }
 

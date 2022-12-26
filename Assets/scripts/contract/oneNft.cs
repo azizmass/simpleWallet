@@ -18,10 +18,6 @@ namespace Solana.Unity.SDK.Example
         Nft.Nft nft;
         SimpleScreen parentScreen;
 
-        private void Awake()
-        {
-            logo = GetComponentInChildren<GameObject>();
-        }
 
         private void Start()
         {
